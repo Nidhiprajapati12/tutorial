@@ -1,0 +1,41 @@
+tasks = []
+
+def add_task():
+    task = input("Enter task: ")
+    tasks.append(task)
+    print("Task added successfully!")
+
+def display_tasks():
+    if tasks:
+        print("Tasks:")
+        for i, task in enumerate(tasks):
+            print(f"{i+1}. {task}")
+    else:
+        print("No tasks.")
+
+def mark_task_completed():
+    display_tasks()
+    task_num = int(input("Enter task number to mark as completed: ")) - 1
+    if 0 <= task_num < len(tasks):
+        del tasks[task_num]
+        print("Task marked as completed!")
+    else:
+        print("Invalid task number.")
+
+while True:
+    print("\n1. Add Task")
+    print("2. Display Tasks")
+    print("3. Mark Task as Completed")
+    print("4. Quit")
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        add_task()
+    elif choice == '2':
+        display_tasks()
+    elif choice == '3':
+        mark_task_completed()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please try again.")
